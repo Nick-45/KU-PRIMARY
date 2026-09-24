@@ -1,0 +1,58 @@
+{
+  "name": "toplink-edu-react",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@cloudinary/react": "^1.11.0",
+    "@cloudinary/url-gen": "^1.10.0",
+    "axios": "^1.4.0",
+    "csv-parse": "^5.4.0",
+    "fast-uri": "^4.1.5",
+    "firebase": "^9.22.0",
+    "firebase-admin": "^14.4.0",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.10.1",
+    "idb": "^7.1.1",
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^3.8.2",
+    "pdfjs-dist": "^3.11.174",
+    "pdfkit": "^0.15.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.2",
+    "react-scripts": "5.0.1",
+    "recharts": "^3.10.1",
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "start": "PORT=3000 HOST=0.0.0.0 react-scripts start",
+    "dev": "PORT=3000 HOST=0.0.0.0 react-scripts start",
+    "build": "react-scripts build",
+    "lint": "eslint src",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "netlify-build": "npm run build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6"
+  }
+}

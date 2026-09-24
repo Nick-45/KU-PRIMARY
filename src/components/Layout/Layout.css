@@ -1,0 +1,1503 @@
+/* src/components/Layout/Layout.css */
+
+/* ============================================
+   APP CONTAINER
+   ============================================ */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+
+/* ============================================
+   HEADER STYLES (White Doves Ministry Style)
+   ============================================ */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 20px;
+    background: white;
+    border-bottom: 2px solid #e0e0e0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Left - Menu Button */
+.menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: transparent;
+    color: #1a237e;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.menu-btn:hover {
+    background: #f0f0f0;
+}
+
+/* Center - Logo immediately before School Name */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    flex: 1;
+    justify-content: center;
+    padding: 0 10px;
+    height: 100%;
+}
+
+.logo-img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.school-name-header {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a237e;
+    letter-spacing: 0.5px;
+    text-align: left;
+    flex-grow: 0;
+    white-space: nowrap;
+}
+
+
+/* Right - User Menu */
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.admin-badge {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.admin-badge.platform {
+    background: #1a237e;
+    color: white;
+}
+
+.admin-badge.admin {
+    background: #1a237e;
+    color: white;
+}
+
+.admin-badge.teacher {
+    background: #28a745;
+    color: white;
+}
+
+.admin-badge.student {
+    background: #17a2b8;
+    color: white;
+}
+
+/* User Avatar */
+.user-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a237e;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.user-avatar:hover {
+    border-color: #1a237e;
+    transform: scale(1.05);
+}
+
+.user-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Notification Button */
+.notification-wrapper {
+    position: relative;
+}
+
+.notification-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    color: #555;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-btn:hover {
+    background: #f0f0f0;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #dc3545;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+}
+
+/* Notification Dropdown */
+.notification-dropdown {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    width: 380px;
+    max-height: 500px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.notification-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.mark-all-read {
+    border: none;
+    background: transparent;
+    color: #1a237e;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.mark-all-read:hover {
+    background: #e8eaf6;
+}
+
+.notification-list {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.notification-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.notification-list::-webkit-scrollbar-thumb {
+    background: #d0d0d0;
+    border-radius: 4px;
+}
+
+.notification-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+}
+
+.notification-empty i {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+.notification-empty p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+}
+
+.notification-item:hover {
+    background: #f8f9fa;
+}
+
+.notification-item.unread {
+    background: #f0f4ff;
+}
+
+.notification-item.unread:hover {
+    background: #e8edf5;
+}
+
+.notification-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.notification-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.notification-message {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.notification-time {
+    font-size: 10px;
+    color: #999;
+    margin-top: 4px;
+}
+
+.notification-unread-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1a237e;
+    flex-shrink: 0;
+    margin-top: 14px;
+}
+
+.notification-footer {
+    padding: 10px 20px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.view-all-btn {
+    border: none;
+    background: transparent;
+    color: #1a237e;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.view-all-btn:hover {
+    background: #e8eaf6;
+}
+
+/* ============================================
+   SIDEBAR STYLES (White Doves Ministry Style)
+   ============================================ */
+.side-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1100;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-nav.open {
+    transform: translateX(0);
+}
+
+/* Sidebar Brand */
+.side-nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 20px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.brand-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a237e;
+}
+
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a237e;
+    letter-spacing: 1px;
+}
+
+/* Super Admin Badge */
+.side-nav-super-admin {
+    padding: 12px 20px;
+    border-bottom: 2px solid #c62828;
+    background: #fff5f5;
+}
+
+.super-admin-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #c62828;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.super-admin-text i {
+    font-size: 16px;
+}
+
+/* Navigation Menu */
+.side-nav-menu {
+    flex: 1;
+    padding: 10px 0;
+    overflow-y: auto;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #555;
+    font-size: 14px;
+    position: relative;
+}
+
+.nav-item:hover {
+    background: #f5f5f5;
+    color: #1a237e;
+}
+
+.nav-item.active {
+    background: #e8eaf6;
+    color: #1a237e;
+    font-weight: 600;
+}
+
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #1a237e;
+    border-radius: 0 4px 4px 0;
+}
+
+.nav-item i {
+    width: 20px;
+    font-size: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.nav-item span {
+    flex: 1;
+}
+
+/* ============================================
+   NAVIGATION BADGES (Perfect Circle - Fixed Size)
+   ============================================ */
+.nav-badge {
+    padding: 0;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    min-width: 24px;
+    min-height: 24px;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    letter-spacing: 0.3px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-left: auto;
+    position: relative;
+}
+
+/* Slightly larger for 4-digit numbers */
+.nav-badge.has-four-digits {
+    min-width: 28px;
+    min-height: 28px;
+    width: 28px;
+    height: 28px;
+    font-size: 9px;
+}
+
+.nav-badge.default {
+    background: #1a237e;
+    color: white;
+}
+
+.nav-badge.danger {
+    background: #dc3545;
+    color: white;
+}
+
+.nav-badge.success {
+    background: #28a745;
+    color: white;
+}
+
+.nav-badge.warning {
+    background: #ffc107;
+    color: #333;
+}
+
+.nav-badge.info {
+    background: #17a2b8;
+    color: white;
+}
+
+/* Gradient Badges - Like Stats Cards */
+.nav-badge.students {
+    background: #4f46e5;
+    color: white;
+}
+
+.nav-badge.teachers {
+    background: #0284c7;
+    color: white;
+}
+
+.nav-badge.exams {
+    background: #0891b2;
+    color: white;
+}
+
+.nav-badge.results {
+    background: #16a34a;
+    color: white;
+}
+
+.nav-badge.submissions {
+    background: #10b981;
+    color: white;
+}
+
+.nav-badge.fees {
+    background: #d97706;
+    color: white;
+}
+
+.nav-badge.subscription {
+    background: #7c3aed;
+    color: white;
+}
+
+.nav-badge.storage {
+    background: #64748b;
+    color: white;
+}
+
+.nav-badge.sync {
+    background: #2563eb;
+    color: white;
+}
+
+/* Footer with User Profile */
+.side-nav-footer {
+    border-top: 1px solid #e0e0e0;
+    padding: 15px 20px;
+}
+
+.user-profile-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+}
+
+.user-avatar-mini {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #1a237e;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.user-avatar-mini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-info-mini {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-email {
+    font-size: 11px;
+    color: #888;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-top: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    color: #dc3545;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.logout-btn:hover {
+    background: #f8d7da;
+}
+
+.logout-btn i {
+    width: 20px;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dark mode support for sidebar */
+@media (prefers-color-scheme: dark) {
+    .side-nav {
+        background: #1a1a2e;
+    }
+
+    .side-nav-brand {
+        border-bottom-color: #2d2d44;
+    }
+
+    .brand-name {
+        color: #e0e0e0;
+    }
+
+    .side-nav-super-admin {
+        background: #2d1a1a;
+        border-bottom-color: #c62828;
+    }
+
+    .super-admin-text {
+        color: #ef5350;
+    }
+
+    .nav-item {
+        color: #aaa;
+    }
+
+    .nav-item:hover {
+        background: #2d2d44;
+        color: #e0e0e0;
+    }
+
+    .nav-item.active {
+        background: #283593;
+        color: white;
+    }
+
+    .side-nav-footer {
+        border-top-color: #2d2d44;
+    }
+
+    .user-name {
+        color: #e0e0e0;
+    }
+
+    .user-email {
+        color: #888;
+    }
+
+    .logout-btn:hover {
+        background: #3d1a1a;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
+
+/* ============================================
+   LAYOUT MAIN CONTENT
+   ============================================ */
+.layout-main {
+    margin-top: 70px;
+    min-height: calc(100vh - 70px);
+    background: #f8f9fa;
+}
+
+/* ============================================
+   PAGE SUBHEADER
+   ============================================ */
+.page-subheader-wrapper {
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 24px;
+    position: sticky;
+    top: 70px;
+    z-index: 99;
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.page-subheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.subheader-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.subheader-icon {
+    color: #1a237e;
+    font-size: 16px;
+    width: 20px;
+}
+
+.subheader-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.subheader-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.subheader-notification-wrapper {
+    position: relative;
+}
+
+.subheader-notification-btn {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    color: #555;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subheader-notification-btn:hover {
+    background: #f0f0f0;
+}
+
+.subheader-notification-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #dc3545;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+}
+
+/* ============================================
+   CONTENT AREA
+   ============================================ */
+.content-area {
+    padding: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablets and smaller laptops */
+@media (max-width: 992px) {
+    .header {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .school-name-header {
+        font-size: 17px;
+    }
+
+    .logo-img {
+        height: 35px;
+    }
+
+    .side-nav {
+        width: 260px;
+    }
+
+    .layout-main {
+        margin-top: 60px;
+    }
+
+    .page-subheader-wrapper {
+        top: 60px;
+        height: 50px;
+        padding: 0 16px;
+    }
+
+    .subheader-title {
+        font-size: 16px;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+}
+
+/* Mobile devices - EXACT White Doves approach */
+@media (max-width: 768px) {
+    .header {
+        height: 56px;
+        padding: 0 12px;
+    }
+
+    .school-name-header {
+        font-size: 18px;  /* Just like White Doves - only font size changes */
+    }
+
+    .logo-img {
+        height: 30px;
+    }
+
+    .logo-container {
+        gap: 8px;
+    }
+
+    .menu-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+
+    .admin-badge {
+        font-size: 8px;
+        padding: 2px 8px;
+    }
+
+    .user-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .user-menu {
+        gap: 8px;
+    }
+
+    .notification-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+    }
+
+    .notification-badge {
+        font-size: 9px;
+        min-width: 16px;
+        height: 16px;
+    }
+
+    .notification-dropdown {
+        width: 320px;
+        right: -60px;
+    }
+
+    .side-nav {
+        width: 280px;
+        max-width: 85vw;
+    }
+
+    .side-nav-brand {
+        padding: 15px 16px;
+    }
+
+    .brand-logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    .brand-name {
+        font-size: 17px;
+    }
+
+    .nav-item {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    .nav-item i {
+        font-size: 14px;
+    }
+
+    .nav-badge {
+        font-size: 10px;
+        min-width: 20px;
+        min-height: 20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .nav-badge.has-four-digits {
+        min-width: 24px;
+        min-height: 24px;
+        width: 24px;
+        height: 24px;
+        font-size: 8px;
+    }
+
+    .side-nav-footer {
+        padding: 12px 16px;
+    }
+
+    .user-name {
+        font-size: 13px;
+    }
+
+    .logout-btn {
+        font-size: 13px;
+    }
+
+    .layout-main {
+        margin-top: 56px;
+    }
+
+    .page-subheader-wrapper {
+        top: 56px;
+        height: 44px;
+        padding: 0 12px;
+    }
+
+    .subheader-title {
+        font-size: 14px;
+    }
+
+    .subheader-icon {
+        font-size: 14px;
+        width: 16px;
+    }
+
+    .subheader-notification-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .subheader-notification-badge {
+        font-size: 9px;
+        min-width: 16px;
+        height: 16px;
+    }
+
+    .content-area {
+        padding: 16px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .header {
+        height: 50px;
+        padding: 0 10px;
+    }
+
+    .school-name-header {
+        font-size: 16px;  /* Just like White Doves - only font size changes */
+    }
+
+    .logo-img {
+        height: 26px;
+    }
+
+    .logo-container {
+        gap: 6px;
+    }
+
+    .menu-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+
+    .admin-badge {
+        font-size: 7px;
+        padding: 1px 6px;
+        display: none;  /* White Doves hides badge on very small screens */
+    }
+
+    .user-avatar {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .user-menu {
+        gap: 6px;
+    }
+
+    .notification-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .notification-badge {
+        font-size: 8px;
+        min-width: 14px;
+        height: 14px;
+    }
+
+    .notification-dropdown {
+        width: 290px;
+        right: -70px;
+    }
+
+    .side-nav {
+        width: 260px;
+        max-width: 80vw;
+    }
+
+    .side-nav-brand {
+        padding: 12px 14px;
+    }
+
+    .brand-logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .brand-name {
+        font-size: 15px;
+    }
+
+    .nav-item {
+        padding: 8px 14px;
+        font-size: 12px;
+        gap: 10px;
+    }
+
+    .nav-item i {
+        font-size: 13px;
+        width: 18px;
+    }
+
+    .nav-badge {
+        font-size: 9px;
+        min-width: 18px;
+        min-height: 18px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .nav-badge.has-four-digits {
+        min-width: 22px;
+        min-height: 22px;
+        width: 22px;
+        height: 22px;
+        font-size: 8px;
+    }
+
+    .side-nav-footer {
+        padding: 10px 14px;
+    }
+
+    .user-avatar-mini {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .user-name {
+        font-size: 12px;
+    }
+
+    .user-email {
+        font-size: 10px;
+    }
+
+    .logout-btn {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .layout-main {
+        margin-top: 50px;
+    }
+
+    .page-subheader-wrapper {
+        top: 50px;
+        height: 40px;
+        padding: 0 10px;
+    }
+
+    .subheader-title {
+        font-size: 12px;
+    }
+
+    .subheader-icon {
+        font-size: 12px;
+        width: 14px;
+    }
+
+    .subheader-notification-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .subheader-notification-badge {
+        font-size: 8px;
+        min-width: 14px;
+        height: 14px;
+    }
+
+    .content-area {
+        padding: 12px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    .header {
+        height: 45px;
+        padding: 0 8px;
+    }
+
+    .school-name-header {
+        font-size: 14px;  /* Just like White Doves - only font size changes */
+    }
+
+    .logo-img {
+        height: 22px;
+    }
+
+    .menu-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .user-avatar {
+        width: 26px;
+        height: 26px;
+        font-size: 10px;
+    }
+
+    .notification-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 12px;
+    }
+
+    .notification-dropdown {
+        width: 260px;
+        right: -80px;
+    }
+
+    .side-nav {
+        width: 240px;
+        max-width: 75vw;
+    }
+
+    .brand-name {
+        font-size: 13px;
+    }
+
+    .nav-item {
+        font-size: 11px;
+        padding: 6px 12px;
+    }
+
+    .layout-main {
+        margin-top: 45px;
+    }
+
+    .page-subheader-wrapper {
+        top: 45px;
+        height: 36px;
+        padding: 0 8px;
+    }
+
+    .subheader-title {
+        font-size: 11px;
+    }
+
+    .content-area {
+        padding: 10px;
+    }
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+.side-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.side-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.side-nav::-webkit-scrollbar-thumb {
+    background: #d0d0d0;
+    border-radius: 4px;
+}
+
+.side-nav::-webkit-scrollbar-thumb:hover {
+    background: #b0b0b0;
+}
+
+/* ============================================
+   DARK MODE SUPPORT
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    .header {
+        background: #1a1a2e;
+        border-bottom-color: #2d2d44;
+    }
+
+    .school-name-header {
+        color: #e0e0e0;
+    }
+
+    .menu-btn {
+        color: #e0e0e0;
+    }
+
+    .menu-btn:hover {
+        background: #2d2d44;
+    }
+
+    .notification-btn {
+        color: #aaa;
+    }
+
+    .notification-btn:hover {
+        background: #2d2d44;
+    }
+
+    .notification-dropdown {
+        background: #1a1a2e;
+    }
+
+    .notification-header {
+        border-bottom-color: #2d2d44;
+    }
+
+    .notification-header h3 {
+        color: #e0e0e0;
+    }
+
+    .mark-all-read {
+        color: #5c6bc0;
+    }
+
+    .mark-all-read:hover {
+        background: #2d2d44;
+    }
+
+    .notification-item {
+        border-bottom-color: #2d2d44;
+    }
+
+    .notification-item:hover {
+        background: #2d2d44;
+    }
+
+    .notification-item.unread {
+        background: #1a1a3e;
+    }
+
+    .notification-item.unread:hover {
+        background: #252545;
+    }
+
+    .notification-title {
+        color: #e0e0e0;
+    }
+
+    .notification-message {
+        color: #aaa;
+    }
+
+    .notification-time {
+        color: #666;
+    }
+
+    .notification-empty {
+        color: #666;
+    }
+
+    .notification-empty i {
+        color: #444;
+    }
+
+    .notification-footer {
+        border-top-color: #2d2d44;
+    }
+
+    .view-all-btn {
+        color: #5c6bc0;
+    }
+
+    .view-all-btn:hover {
+        background: #2d2d44;
+    }
+
+    .side-nav {
+        background: #1a1a2e;
+    }
+
+    .side-nav-brand {
+        border-bottom-color: #2d2d44;
+    }
+
+    .brand-name {
+        color: #e0e0e0;
+    }
+
+    .side-nav-super-admin {
+        background: #2d1a1a;
+        border-bottom-color: #c62828;
+    }
+
+    .super-admin-text {
+        color: #ef5350;
+    }
+
+    .nav-item {
+        color: #aaa;
+    }
+
+    .nav-item:hover {
+        background: #2d2d44;
+        color: #e0e0e0;
+    }
+
+    .nav-item.active {
+        background: #283593;
+        color: white;
+    }
+
+    .side-nav-footer {
+        border-top-color: #2d2d44;
+    }
+
+    .user-name {
+        color: #e0e0e0;
+    }
+
+    .user-email {
+        color: #888;
+    }
+
+    .logout-btn:hover {
+        background: #3d1a1a;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .layout-main {
+        background: #12121e;
+    }
+
+    .page-subheader-wrapper {
+        background: #1a1a2e;
+        border-bottom-color: #2d2d44;
+    }
+
+    .subheader-title {
+        color: #e0e0e0;
+    }
+
+    .subheader-icon {
+        color: #5c6bc0;
+    }
+
+    .subheader-notification-btn {
+        color: #aaa;
+    }
+
+    .subheader-notification-btn:hover {
+        background: #2d2d44;
+    }
+
+    .content-area {
+        background: #12121e;
+    }
+
+    .user-avatar {
+        border-color: #2d2d44;
+    }
+
+    .user-avatar:hover {
+        border-color: #5c6bc0;
+    }
+}

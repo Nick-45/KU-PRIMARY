@@ -1,0 +1,145 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "students",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "schoolId", "order": "ASCENDING" },
+        { "fieldPath": "level", "order": "ASCENDING" },
+        { "fieldPath": "class", "order": "ASCENDING" },
+        { "fieldPath": "firstName", "order": "ASCENDING" }
+      ]
+    },
+    {
+  "collectionGroup": "students",
+  "queryScope": "COLLECTION",
+  "fields": [
+    { "fieldPath": "schoolId", "order": "ASCENDING" },
+    { "fieldPath": "createdAt", "order": "DESCENDING" }
+  ]
+},
+    {
+      "collectionGroup": "students",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "schoolId", "order": "ASCENDING" },
+        { "fieldPath": "level", "order": "ASCENDING" },
+        { "fieldPath": "class", "order": "ASCENDING" },
+        { "fieldPath": "admissionNumber", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "student_scores",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "schoolId", "order": "ASCENDING" },
+        { "fieldPath": "level", "order": "ASCENDING" },
+        { "fieldPath": "class", "order": "ASCENDING" },
+        { "fieldPath": "subject", "order": "ASCENDING" },
+        { "fieldPath": "term", "order": "ASCENDING" },
+        { "fieldPath": "assessmentType", "order": "ASCENDING" }
+      ]
+    },
+    {
+  "collectionGroup": "student_scores",
+  "queryScope": "COLLECTION",
+  "fields": [
+    { "fieldPath": "schoolId", "order": "ASCENDING" },
+    { "fieldPath": "teacherId", "order": "ASCENDING" },
+    { "fieldPath": "recordedAt", "order": "DESCENDING" }
+  ]
+},
+    {
+  "collectionGroup": "students",
+  "queryScope": "COLLECTION",
+  "fields": [
+    { "fieldPath": "schoolId", "order": "ASCENDING" },
+    { "fieldPath": "createdAt", "order": "DESCENDING" }
+  ]
+},
+{
+  "collectionGroup": "students",
+  "queryScope": "COLLECTION",
+  "fields": [
+    { "fieldPath": "schoolId", "order": "ASCENDING" },
+    { "fieldPath": "studentId", "order": "ASCENDING" }
+  ]
+},
+    {
+  "collectionGroup": "student_scores",
+  "queryScope": "COLLECTION",
+  "fields": [
+    { "fieldPath": "schoolId", "order": "ASCENDING" },
+    { "fieldPath": "level", "order": "ASCENDING" },
+    { "fieldPath": "class", "order": "ASCENDING" },
+    { "fieldPath": "term", "order": "ASCENDING" }
+  ]
+},
+    {
+      "collectionGroup": "assessment_configs",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "schoolId", "order": "ASCENDING" },
+        { "fieldPath": "level", "order": "ASCENDING" },
+        { "fieldPath": "class", "order": "ASCENDING" },
+        { "fieldPath": "subject", "order": "ASCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
+{
+  "indexes": [
+    { "collectionGroup": "students", "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "schoolId", "order": "ASCENDING" },
+        { "fieldPath": "level", "order": "ASCENDING" },
+        { "fieldPath": "firstName", "order": "ASCENDING" }
+      ]
+    },
+    { "collectionGroup": "students", "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "schoolId", "order": "ASCENDING" },
+        { "fieldPath": "class", "order": "ASCENDING" },
+        { "fieldPath": "firstName", "order": "ASCENDING" }
+      ]
+    },
+    { "collectionGroup": "invoices", "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "schoolId", "order": "ASCENDING" },
+        { "fieldPath": "academicYear", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    },
+    { "collectionGroup": "invoices", "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "schoolId", "order": "ASCENDING" },
+        { "fieldPath": "term", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    },
+    { "collectionGroup": "fee_transactions", "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "schoolId", "order": "ASCENDING" },
+        { "fieldPath": "year", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    },
+    { "collectionGroup": "fee_transactions", "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "schoolId", "order": "ASCENDING" },
+        { "fieldPath": "type", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "ASCENDING" }
+      ]
+    },
+    { "collectionGroup": "student_balances", "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "schoolId", "order": "ASCENDING" },
+        { "fieldPath": "term", "order": "ASCENDING" },
+        { "fieldPath": "year", "order": "ASCENDING" },
+        { "fieldPath": "studentName", "order": "ASCENDING" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "entities": {
+    "School": {
+      "title": "School",
+      "description": "Tenant entity representing a school institution.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 128 },
+        "motto": { "type": "string", "maxLength": 256 },
+        "logoUrl": { "type": "string", "maxLength": 512 },
+        "address": { "type": "string", "maxLength": 256 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "email": { "type": "string", "format": "email", "maxLength": 128 },
+        "paybillNumber": { "type": "string", "maxLength": 32 },
+        "accountNumber": { "type": "string", "maxLength": 64 },
+        "active": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name"]
+    },
+    "User": {
+      "title": "User",
+      "description": "User profile with role-based access control.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "format": "email", "maxLength": 128 },
+        "role": { "type": "string", "enum": ["admin", "teacher", "student", "parent", "super_admin", "user"] },
+        "schoolId": { "type": "string", "maxLength": 128 },
+        "fullName": { "type": "string", "maxLength": 128 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "status": { "type": "string", "maxLength": 32 },
+        "lastLogin": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Student": {
+      "title": "Student",
+      "description": "Student record enrolled in a specific school.",
+      "type": "object",
+      "properties": {
+        "schoolId": { "type": "string", "maxLength": 128 },
+        "studentId": { "type": "string", "maxLength": 128 },
+        "admissionNumber": { "type": "string", "maxLength": 64 },
+        "firstName": { "type": "string", "maxLength": 64 },
+        "lastName": { "type": "string", "maxLength": 64 },
+        "class": { "type": "string", "maxLength": 64 },
+        "level": { "type": "string", "maxLength": 64 },
+        "gender": { "type": "string", "enum": ["Male", "Female", "Other"] },
+        "parentName": { "type": "string", "maxLength": 128 },
+        "parentPhone": { "type": "string", "maxLength": 32 },
+        "parentEmail": { "type": "string", "format": "email", "maxLength": 128 },
+        "status": { "type": "string", "maxLength": 32 },
+        "isDeleted": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["schoolId", "admissionNumber", "firstName", "lastName", "class", "level"]
+    },
+    "Teacher": {
+      "title": "Teacher",
+      "description": "Teaching staff member affiliated with a school.",
+      "type": "object",
+      "properties": {
+        "schoolId": { "type": "string", "maxLength": 128 },
+        "uid": { "type": "string", "maxLength": 128 },
+        "firstName": { "type": "string", "maxLength": 64 },
+        "lastName": { "type": "string", "maxLength": 64 },
+        "email": { "type": "string", "format": "email", "maxLength": 128 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "tscNumber": { "type": "string", "maxLength": 64 },
+        "subjects": { "type": "array" },
+        "classes": { "type": "array" },
+        "status": { "type": "string", "maxLength": 32 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["schoolId", "firstName", "lastName", "email"]
+    },
+    "FeeTransaction": {
+      "title": "FeeTransaction",
+      "description": "Immutable ledger transaction entry recording fee payments, discounts, refunds, waivers, or reversals.",
+      "type": "object",
+      "properties": {
+        "schoolId": { "type": "string", "maxLength": 128 },
+        "studentId": { "type": "string", "maxLength": 128 },
+        "studentName": { "type": "string", "maxLength": 128 },
+        "admissionNumber": { "type": "string", "maxLength": 64 },
+        "class": { "type": "string", "maxLength": 64 },
+        "level": { "type": "string", "maxLength": 64 },
+        "term": { "type": "string", "maxLength": 32 },
+        "year": { "type": "number" },
+        "amount": { "type": "number" },
+        "type": { "type": "string", "enum": ["payment", "discount", "waiver", "refund", "reversal"] },
+        "paymentMethod": { "type": "string", "maxLength": 64 },
+        "reference": { "type": "string", "maxLength": 128 },
+        "status": { "type": "string", "enum": ["pending", "completed", "success", "failed", "reversed"] },
+        "idempotencyKey": { "type": "string", "maxLength": 256 },
+        "invoiceId": { "type": "string", "maxLength": 128 },
+        "recordedBy": { "type": "string", "maxLength": 128 },
+        "recordedByName": { "type": "string", "maxLength": 128 },
+        "voided": { "type": "boolean" },
+        "voidedAt": { "type": "string" },
+        "voidedBy": { "type": "string", "maxLength": 128 },
+        "voidReason": { "type": "string", "maxLength": 256 },
+        "reversalOf": { "type": "string", "maxLength": 128 },
+        "mpesaReceiptNumber": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["schoolId", "studentId", "amount", "type", "idempotencyKey"]
+    },
+    "Invoice": {
+      "title": "Invoice",
+      "description": "School fee invoice issued to a student.",
+      "type": "object",
+      "properties": {
+        "invoiceNumber": { "type": "string", "maxLength": 64 },
+        "schoolId": { "type": "string", "maxLength": 128 },
+        "studentId": { "type": "string", "maxLength": 128 },
+        "studentName": { "type": "string", "maxLength": 128 },
+        "admissionNumber": { "type": "string", "maxLength": 64 },
+        "studentClass": { "type": "string", "maxLength": 64 },
+        "studentLevel": { "type": "string", "maxLength": 64 },
+        "term": { "type": "string", "maxLength": 32 },
+        "academicYear": { "type": "string", "maxLength": 32 },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "tax": { "type": "number" },
+        "discount": { "type": "number" },
+        "total": { "type": "number" },
+        "paidAmount": { "type": "number" },
+        "remainingBalance": { "type": "number" },
+        "dueDate": { "type": "string", "maxLength": 32 },
+        "status": { "type": "string", "enum": ["pending", "partial", "paid", "overdue", "cancelled"] },
+        "payments": { "type": "array" },
+        "notes": { "type": "string", "maxLength": 512 },
+        "createdBy": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["schoolId", "studentId", "total", "term", "academicYear", "status"]
+    },
+    "StudentBalance": {
+      "title": "StudentBalance",
+      "description": "Materialized ledger balance for a student for a specific term and year.",
+      "type": "object",
+      "properties": {
+        "schoolId": { "type": "string", "maxLength": 128 },
+        "studentId": { "type": "string", "maxLength": 128 },
+        "studentName": { "type": "string", "maxLength": 128 },
+        "admissionNumber": { "type": "string", "maxLength": 64 },
+        "studentClass": { "type": "string", "maxLength": 64 },
+        "level": { "type": "string", "maxLength": 64 },
+        "term": { "type": "string", "maxLength": 32 },
+        "year": { "type": "number" },
+        "totalInvoiced": { "type": "number" },
+        "totalPaid": { "type": "number" },
+        "totalDiscount": { "type": "number" },
+        "totalWaived": { "type": "number" },
+        "balance": { "type": "number" },
+        "status": { "type": "string", "enum": ["no_invoice", "pending", "partial", "paid"] },
+        "lastTransactionAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["schoolId", "studentId", "term", "year", "balance"]
+    },
+    "FeeAuditLog": {
+      "title": "FeeAuditLog",
+      "description": "Immutable security and operational audit trail for all financial mutations.",
+      "type": "object",
+      "properties": {
+        "schoolId": { "type": "string", "maxLength": 128 },
+        "action": { "type": "string", "maxLength": 64 },
+        "transactionId": { "type": "string", "maxLength": 256 },
+        "studentId": { "type": "string", "maxLength": 128 },
+        "amount": { "type": "number" },
+        "type": { "type": "string", "maxLength": 32 },
+        "performedBy": { "type": "string", "maxLength": 128 },
+        "performedByName": { "type": "string", "maxLength": 128 },
+        "timestamp": { "type": "string" },
+        "ip": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["schoolId", "action", "performedBy"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "General immutable security and operational audit trail.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "action": { "type": "string", "maxLength": 64 },
+        "entityId": { "type": "string", "maxLength": 256 },
+        "details": { "type": "object" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["userId", "action"]
+    },
+    "StudentScore": {
+      "title": "StudentScore",
+      "description": "Academic assessment score for a student.",
+      "type": "object",
+      "properties": {
+        "schoolId": { "type": "string", "maxLength": 128 },
+        "studentId": { "type": "string", "maxLength": 128 },
+        "level": { "type": "string", "maxLength": 64 },
+        "class": { "type": "string", "maxLength": 64 },
+        "subject": { "type": "string", "maxLength": 64 },
+        "term": { "type": "string", "maxLength": 32 },
+        "assessmentType": { "type": "string", "maxLength": 64 },
+        "score": { "type": "number" },
+        "teacherId": { "type": "string", "maxLength": 128 },
+        "status": { "type": "string", "enum": ["pending", "published", "graded"] },
+        "recordedAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["schoolId", "studentId", "subject", "term", "assessmentType", "score"]
+    }
+  },
+  "firestore": {
+    "/schools/{schoolId}": {
+      "schema": "School",
+      "description": "Root tenant documents for institutions."
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and RBAC credentials."
+    },
+    "/students/{studentId}": {
+      "schema": "Student",
+      "description": "Student records isolated by schoolId."
+    },
+    "/teachers/{teacherId}": {
+      "schema": "Teacher",
+      "description": "Teacher profiles and assigned classes/subjects."
+    },
+    "/fee_transactions/{txnId}": {
+      "schema": "FeeTransaction",
+      "description": "Immutable append-only financial ledger transactions."
+    },
+    "/invoices/{invoiceId}": {
+      "schema": "Invoice",
+      "description": "Fee billing invoices issued to students."
+    },
+    "/student_balances/{balanceId}": {
+      "schema": "StudentBalance",
+      "description": "Materialized ledger balances synchronized with fee transactions."
+    },
+    "/fee_audit_log/{auditId}": {
+      "schema": "FeeAuditLog",
+      "description": "Append-only financial audit log."
+    },
+    "/audit_logs/{logId}": {
+      "schema": "AuditLog",
+      "description": "General audit log for user actions."
+    },
+    "/student_scores/{scoreId}": {
+      "schema": "StudentScore",
+      "description": "Student assessment scores indexed deterministically."
+    }
+  }
+}

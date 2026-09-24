@@ -1,0 +1,46 @@
+toplink-edu-react/
+├── public/
+│   ├── index.html
+│   └── logo.png
+├── src/
+│   ├── App.jsx
+│   ├── index.js
+│   ├── firebase.js
+│   ├── components/
+│   │   ├── Layout/
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── Header.jsx
+│   │   │   └── MobileNav.jsx
+│   │   ├── Auth/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── Verification.jsx
+│   │   └── Common/
+│   │       ├── LoadingSpinner.jsx
+│   │       ├── Notification.jsx
+│   │       └── ProtectedRoute.jsx
+│   ├── pages/
+│   │   ├── Dashboard.jsx
+│   │   ├── Students.jsx
+│   │   ├── Teachers.jsx
+│   │   ├── Exams.jsx
+│   │   ├── Results.jsx
+│   │   ├── Reports.jsx
+│   │   ├── Subscription.jsx
+│   │   ├── SchoolProfile.jsx
+│   │   ├── TeacherDashboard.jsx
+│   │   ├── TeacherProfile.jsx
+│   │   ├── TeacherReports.jsx
+│   │   └── StudentReports.jsx
+│   ├── context/
+│   │   └── AuthContext.jsx
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   └── useFirestore.js
+│   ├── styles/
+│   │   └── index.css
+│   └── utils/
+│       └── constants.js
+├── package.json
+├── netlify.toml
+└── .env

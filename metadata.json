@@ -1,0 +1,6 @@
+{
+  "name": "EDUPRIVA - School Management System | Kenya | M-Pesa Integration",
+  "description": "Edupriva: The leading school management system in Kenya. Automate fee collection, M-Pesa reconciliation, student records & salary processing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
